@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Users</title>
+        <link rel="stylesheet" type="text/css" href="ccard.css">
+        <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+        <script>
+            $(document).ready(function(){
+                $('#addb').click(function(){
+                    var fname = $("#fname").val();
+                    var lname = $("#lname").val();
+                    var info = $("#info").val();
+                    var full = fname + " " + lname;
+
+                    $("#card").append("<div class='hide'><h3>" + full + "</h3><p style='display:none'>" + info + "</p>" + "Click for description!" + "</div>");
+                    return false;
+                });
+
+                $(document).on("click", ".hide", function(){
+                    $(this).children().toggle();
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="box">
+            <form id="form">
+                <div>
+                    First Name:
+                    <input id="fname" type="text">
+                </div>
+
+                <div >
+                    Last Name:  
+                    <input id="lname" type="text">              
+                </div>
+
+                <div >
+                    Description:
+                    <textarea id="info"></textarea>
+                </div>
+
+                <button id ="addb" type="button">Add User</button>
+
+            </form>           
+        </div>
+        
+        <div id="card">
+
+        </div>
+    </body>
+</html>
